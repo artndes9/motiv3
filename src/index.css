@@ -1,0 +1,180 @@
+
+@import "tailwindcss";
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@theme {
+
+  /* Fonts */
+  --font-display: "Playfair Display", serif;
+  --font-body: "Kanit", sans-serif;
+
+  /* Brand Colors */
+  --color-brand: #15243c;
+  --color-brand-orange: #f97316;
+  --color-brand-gold: #d4af37;
+  
+  /* Core Colors */
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-surface: #f8fafc;
+  --color-surface-elevated: #ffffff;
+
+  /* Text Colors */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #ffffff;
+
+  /* State Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* UI Component Colors */
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0f172a;
+
+  --color-primary: #1e293b;
+  --color-primary-foreground: #f8fafc;
+
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #1e293b;
+
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+
+  --color-accent: #f1f5f9;
+  --color-accent-foreground: #1e293b;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #f8fafc;
+
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #0f172a;
+
+  /* Interactive Colors */
+  --color-hover: #f1f5f9;
+  --color-active: #e2e8f0;
+  --color-focus: #3b82f6;
+
+  /* Sidebar Colors */
+  --color-sidebar: #fafafa;
+  --color-sidebar-foreground: #52525b;
+  --color-sidebar-primary: #18181b;
+  --color-sidebar-primary-foreground: #fafafa;
+  --color-sidebar-accent: #f4f4f5;
+  --color-sidebar-accent-foreground: #18181b;
+  --color-sidebar-border: #e4e4e7;
+  --color-sidebar-ring: #3b82f6;
+
+  /* Spacing & Layout */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  /* Container settings */
+  --container-center: true;
+  --container-padding: 1rem;
+  --container-2xl: 1400px;
+  
+  /* Responsive Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-scale-in: scale-in 0.2s ease-out;
+}
+
+/* Animations (global) */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Base styles that rely on the custom color tokens */
+body {
+  @apply bg-background text-foreground font-body;
+  line-height: 1.6;
+}
+
+/* Responsive Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display;
+  line-height: 1.2;
+}
+
+/* Responsive Container */
+.container {
+  @apply mx-auto px-4;
+  max-width: var(--container-2xl);
+}
+
+@media (min-width: 640px) {
+  .container {
+    @apply px-6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    @apply px-8;
+  }
+}
+
+/* Utility Classes for Better Maintainability */
+.text-balance {
+  text-wrap: balance;
+}
+
+.surface {
+  @apply bg-surface border border-border rounded-lg;
+}
+
+.surface-elevated {
+  @apply bg-surface-elevated shadow-sm border border-border rounded-lg;
+}
+
+/* Responsive Grid Utilities */
+.grid-responsive {
+  @apply grid grid-cols-1 gap-4;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    @apply grid-cols-2 gap-6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    @apply grid-cols-3 gap-8;
+  }
+}
